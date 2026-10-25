@@ -1,5 +1,8 @@
 # Clarify — voice cleanup for any tab
 
+<kbd><img width="1210" height="733" alt="clarify-demo" src="https://github.com/user-attachments/assets/f6aa1f0d-cd76-440f-8e41-e687f7ae55bf" /></kdb>
+
+
 Live noise reduction and volume leveling for podcasts and talking-head videos.
 It works on the stream as it plays (no downloading), on YouTube or any other site.
 
