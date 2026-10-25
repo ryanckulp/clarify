@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Clarify</title>
+  <link rel="stylesheet" href="popup.css">
+  <script type="module" src="popup.js"></script>
+</head>
+<body>
+  <header>
+    <img src="icons/icon32.png" alt="" width="20" height="20">
+    <h1>Clarify</h1>
+    <span id="state" class="state">Off</span>
+  </header>
+
+  <button id="toggle" class="power" disabled>Clean up this tab</button>
+  <p id="error" class="error" hidden></p>
+
+  <section id="meters" class="meters" hidden>
+    <div class="meter">
+      <span class="label">Before</span>
+      <div class="bar"><i id="inBar"></i></div>
+      <span id="inDb" class="db">–</span>
+    </div>
+    <div class="meter">
+      <span class="label">After</span>
+      <div class="bar"><i id="outBar" class="after"></i></div>
+      <span id="outDb" class="db">–</span>
+    </div>
+    <p class="readout"><span id="gain">Auto gain 0 dB</span><span id="latency"></span></p>
+  </section>
+
+  <section class="group">
+    <h2>Noise reduction</h2>
+    <div class="seg" role="radiogroup" aria-label="Noise reduction">
+      <button role="radio" data-denoise="off">Off</button>
+      <button role="radio" data-denoise="natural">Natural</button>
+      <button role="radio" data-denoise="max">Max</button>
+    </div>
+    <p id="denoiseHint" class="hint"></p>
+  </section>
+
+  <section class="group rows">
+    <label class="row">
+      <span><b>Auto-level volume</b><small>Brings quiet voices up, loud ones down</small></span>
+      <input type="checkbox" class="switch" data-setting="level">
+    </label>
+    <label class="row">
+      <span><b>Voice clarity</b><small>Gentle lift around 3 kHz</small></span>
+      <input type="checkbox" class="switch" data-setting="clarity">
+    </label>
+    <label class="row">
+      <span><b>Mono</b><small>For guests stuck in one ear</small></span>
+      <input type="checkbox" class="switch" data-setting="mono">
+    </label>
+    <div class="row slider">
+      <span><b>Boost</b></span>
+      <input type="range" id="boost" min="0" max="12" step="1" value="0" aria-label="Boost in dB">
+      <output id="boostOut">0 dB</output>
+    </div>
+  </section>
+
+  <footer>Settings apply to every cleaned tab · <kbd>Alt</kbd><kbd>Shift</kbd><kbd>C</kbd></footer>
+</body>
+</html>
